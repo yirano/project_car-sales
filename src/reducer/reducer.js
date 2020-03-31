@@ -22,7 +22,7 @@ function reducer(state = intialState, action) {
   console.log(state.additionalFeatures[1].price);
   switch (action.type) {
     case ADD_FEATURE:
-      const id = action.payload - 1;
+      const id = state.additionalFeatures.findIndex(feature => feature.id === Number(action.payload))
       return {
         car: { price: state.car.price + state.additionalFeatures[id].price, name: state.car.name, image: state.car.image, features: [...state.car.features, state.additionalFeatures[id].name] },
         additionalFeatures: [...state.additionalFeatures]
