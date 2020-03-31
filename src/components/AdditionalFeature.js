@@ -11,11 +11,17 @@ const AdditionalFeature = props => {
     props.addFeature(e.target.id)
   }
   return (
-    <li>
-      {/* Add an onClick that will let you add a feature to your car */}
-      <button className="button" id={props.key} onClick={e => handleFeatureAdd(e)}>Add</button>
-      {props.feature.name} (+{props.feature.price})
-    </li>
+    <>
+      {props.feature.map(feature => {
+        return (
+          <li>
+            {/* Add an onClick that will let you add a feature to your car */}
+            <button className="button" id={feature.id} onClick={e => handleFeatureAdd(e)}>Add</button>
+            {feature.name} (+{feature.price})
+          </li>
+        )
+      })}
+    </>
   );
 };
 
