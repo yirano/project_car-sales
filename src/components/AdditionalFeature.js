@@ -4,10 +4,8 @@ import { addFeature } from '../actions/actions'
 
 
 const AdditionalFeature = props => {
-  console.log(props);
   function handleFeatureAdd(e) {
     e.preventDefault();
-    console.log('handle add', e.target);
     props.addFeature(e.target.id)
   }
   return (

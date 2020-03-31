@@ -9,12 +9,13 @@ const AddedFeature = props => {
   }
   return (
     <>
-      {props.feature.map(item => {
+      {console.log(props.features)}
+      {props.features.map(item => {
         return (
           <li>
             {/* Add an onClick to run a function to remove a feature */}
-            <button className="button" onClick={e => handleFeatureRemove(e)}>X</button>
-            {item}
+            <button className="button" id={item.id} onClick={e => handleFeatureRemove(e)}>X</button>
+            {item.feature}
           </li>
         )
       })}
@@ -24,7 +25,7 @@ const AddedFeature = props => {
 
 const mapStateToProps = state => {
   return {
-    feature: state.car.features
+    features: state.car.features
   }
 }
 

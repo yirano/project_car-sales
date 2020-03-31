@@ -7,12 +7,12 @@ const AddedFeatures = props => {
   return (
     <div className="content">
       <h6>Added features:</h6>
-      {props.carFeatures.length ? (
-        <ol type="1">
-          <AddedFeature />
-        </ol>
+      {!props.carFeatures.length ? (
+        <p>You can purchase items from the store.</p>
       ) : (
-          <p>You can purchase items from the store.</p>
+          <ol type="1">
+            <AddedFeature />
+          </ol>
         )}
     </div>
   );

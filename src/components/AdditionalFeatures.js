@@ -3,16 +3,15 @@ import { connect } from 'react-redux'
 import AdditionalFeature from './AdditionalFeature';
 
 const AdditionalFeatures = props => {
-  console.log('container', props);
   return (
     <div className="content">
       <h4>Additional Features</h4>
-      {props.additionalFeatures.length ? (
-        <ol type="1">
-          <AdditionalFeature />
-        </ol>
+      {!props.additionalFeatures.length ? (
+        <p>Nice looking car!</p>
       ) : (
-          <p>Nice looking car!</p>
+          <ol type="1">
+            <AdditionalFeature />
+          </ol>
         )}
     </div>
   );
