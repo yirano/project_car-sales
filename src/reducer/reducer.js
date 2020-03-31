@@ -1,4 +1,4 @@
-import { ADD_FEATURE } from "../actions/actions";
+import { ADD_FEATURE, DELETE_FEATURE } from "../actions/actions";
 
 
 const intialState = {
@@ -27,6 +27,8 @@ function reducer(state = intialState, action) {
         car: { price: state.car.price + state.additionalFeatures[id].price, name: state.car.name, image: state.car.image, features: [...state.car.features, state.additionalFeatures[id].name] },
         additionalFeatures: [...state.additionalFeatures]
       }
+    case DELETE_FEATURE:
+      return {}
     default:
       return state;
   }

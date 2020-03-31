@@ -1,9 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux'
+import { deleteFeature } from '../actions/actions'
 
 const AddedFeature = props => {
   function handleFeatureRemove(e) {
     console.log(e.target.id);
+    props.deleteFeature(e.target.id)
   }
   return (
     <>
@@ -26,4 +28,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, {})(AddedFeature);
+export default connect(mapStateToProps, { deleteFeature })(AddedFeature);
