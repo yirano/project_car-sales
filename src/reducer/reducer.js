@@ -27,14 +27,16 @@ function reducer(state = intialState, action) {
         car: {
           price: state.car.price + state.additionalFeatures[id].price, name: state.car.name, image: state.car.image,
           features: [...state.car.features,
-          { feature: state.additionalFeatures[id].name, id: Date.now() }]
+          { feature: state.additionalFeatures[id].name, id: Date.now(), price: state.additionalFeatures[id].price }]
         },
         additionalFeatures: [...state.additionalFeatures]
       }
     case DELETE_FEATURE:
+      const delId = state.car.features.findIndex(feature => feature.id === Number(action.payload))
       return {
         car: {
           ...state.car,
+          price: state.car.price - state.car.features[delId].price,
           features: state.car.features.filter(feature => feature.id !== Number(action.payload))
         },
         additionalFeatures: [...state.additionalFeatures]
