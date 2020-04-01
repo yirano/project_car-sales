@@ -1,12 +1,11 @@
-import React from 'react';
-import { connect } from 'react-redux'
-import { addFeature } from '../actions/actions'
-
+import React from "react";
+import { connect } from "react-redux";
+import { addFeature } from "../actions/actions";
 
 const AdditionalFeature = props => {
   function handleFeatureAdd(e) {
     e.preventDefault();
-    props.addFeature(e.target.id)
+    props.addFeature(e.target.id);
   }
   return (
     <>
@@ -14,10 +13,16 @@ const AdditionalFeature = props => {
         return (
           <li>
             {/* Add an onClick that will let you add a feature to your car */}
-            <button className="button" id={feature.id} onClick={e => handleFeatureAdd(e)}>Add</button>
+            <button
+              className="button"
+              id={feature.id}
+              onClick={e => handleFeatureAdd(e)}
+            >
+              Add
+            </button>
             {feature.name} (+{feature.price})
           </li>
-        )
+        );
       })}
     </>
   );
@@ -26,7 +31,7 @@ const AdditionalFeature = props => {
 const mapStateToProps = state => {
   return {
     feature: state.additionalFeatures
-  }
-}
+  };
+};
 
 export default connect(mapStateToProps, { addFeature })(AdditionalFeature);

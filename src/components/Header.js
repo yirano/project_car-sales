@@ -1,5 +1,5 @@
-import React from 'react';
-import { connect } from 'react-redux'
+import React from "react";
+import { connect } from "react-redux";
 
 const Header = props => {
   return (
@@ -17,8 +17,8 @@ const mapStateToProps = state => {
   return {
     carImage: state.car.image,
     carName: state.car.name,
-    carPrice: state.car.price
-  }
-}
+    carPrice: state.car.fixedPrice
+  };
+};
 
 export default connect(mapStateToProps, {})(Header);
