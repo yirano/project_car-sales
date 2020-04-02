@@ -1,25 +1,21 @@
 import React from "react";
-import { connect } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { addFeature } from "../actions/actions";
 
 const AdditionalFeature = props => {
-  function handleFeatureAdd(e) {
-    e.preventDefault();
-    props.addFeature(e.target.id);
-  }
+  const features = useSelector(state => state.additionalFeatures)
+  const dispatch = useDispatch();
+
   return (
     <>
-      {props.feature.map(feature => {
+      {features.map(feature => {
         return (
           <li>
-            {/* Add an onClick that will let you add a feature to your car */}
             <button
               className="button"
               id={feature.id}
-              onClick={e => handleFeatureAdd(e)}
-            >
-              Add
-            </button>
+              onClick={e => dispatch(addFeature(e.target.id))}
+            >Add</button>
             {feature.name} (+{feature.price})
           </li>
         );
@@ -28,10 +24,4 @@ const AdditionalFeature = props => {
   );
 };
 
-const mapStateToProps = state => {
-  return {
-    feature: state.additionalFeatures
-  };
-};
-
-export default connect(mapStateToProps, { addFeature })(AdditionalFeature);
+export default AdditionalFeature
