@@ -1,13 +1,13 @@
 import React from 'react';
-import { connect } from 'react-redux';
-
+import { useSelector } from 'react-redux'
 import AddedFeature from './AddedFeature';
 
 const AddedFeatures = props => {
+  const features = useSelector(state => state.car.features)
   return (
     <div className="content">
       <h6>Added features:</h6>
-      {!props.carFeatures.length ? (
+      {!features.length ? (
         <p>You can purchase items from the store.</p>
       ) : (
           <ol type="1">
@@ -18,10 +18,4 @@ const AddedFeatures = props => {
   );
 };
 
-const mapStateToProps = state => {
-  return {
-    carFeatures: state.car.features
-  }
-}
-
-export default connect(mapStateToProps, {})(AddedFeatures);
+export default AddedFeatures
