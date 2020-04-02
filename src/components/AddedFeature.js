@@ -1,14 +1,14 @@
 import React, { useCallback } from "react";
-import * as actions from "../actions/actions";
+import { deleteFeature } from "../actions/actions";
 import { useSelector, useDispatch } from 'react-redux'
 
 const AddedFeature = props => {
 
   const features = useSelector(state => state.car.features)
   const dispatch = useDispatch()
-  const handleFeatureRemove = useCallback(() => {
-    dispatch(actions.deleteFeature)
-  }, [dispatch])
+  // const handleFeatureRemove = (e) => {
+  //   dispatch(deleteFeature(e))
+  // }
 
   return (
     <>
@@ -18,7 +18,7 @@ const AddedFeature = props => {
             <button
               className="button"
               id={item.id}
-              onClick={(e) => (handleFeatureRemove(e))}
+              onClick={(e) => dispatch(deleteFeature(e.target.id))}
             >
               X
             </button>
