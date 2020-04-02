@@ -14,3 +14,4 @@ export function deleteFeature(item) {
     payload: item
   }
 }
+
