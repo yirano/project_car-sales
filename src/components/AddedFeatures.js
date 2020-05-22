@@ -1,6 +1,6 @@
-import React from 'react';
+import React from 'react'
 
-import AddedFeature from './AddedFeature';
+import AddedFeature from './AddedFeature'
 
 const AddedFeatures = props => {
   return (
@@ -13,10 +13,10 @@ const AddedFeatures = props => {
           ))}
         </ol>
       ) : (
-        <p>You can purchase items from the store.</p>
-      )}
+          <p>You can purchase items from the store.</p>
+        )}
     </div>
-  );
-};
+  )
+}
 
-export default AddedFeatures;
+export default AddedFeatures
